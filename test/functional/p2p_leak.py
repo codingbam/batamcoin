@@ -12,7 +12,7 @@ into sending us something it shouldn't.
 
 Also test that nodes that send unsupported service bits to bitcoind are disconnected
 and don't receive a VERACK. Unsupported service bits are currently 1 << 5 and
-1 << 7 (until August 1st 2018)."""
+1 << 7 (until April 1st 2019)."""
 
 from test_framework.mininode import *
 from test_framework.test_framework import BitcoinTestFramework
@@ -137,8 +137,8 @@ class P2PLeakTest(BitcoinTestFramework):
         assert not unsupported_service_bit5_node.unexpected_msg
         assert not unsupported_service_bit7_node.unexpected_msg
 
-        self.log.info("Service bits 5 and 7 are allowed after August 1st 2018")
-        self.nodes[0].setmocktime(1533168000)  # August 2nd 2018
+        self.log.info("Service bits 5 and 7 are allowed after April 1st 2019")
+        self.nodes[0].setmocktime(1554104520)  # April 2nd 2019
 
         allowed_service_bit5_node = self.nodes[0].add_p2p_connection(P2PInterface(), services=NODE_NETWORK|NODE_UNSUPPORTED_SERVICE_BIT_5)
         allowed_service_bit7_node = self.nodes[0].add_p2p_connection(P2PInterface(), services=NODE_NETWORK|NODE_UNSUPPORTED_SERVICE_BIT_7)
