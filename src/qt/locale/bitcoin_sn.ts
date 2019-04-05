@@ -98,8 +98,8 @@
         <translation>Vhura &amp;URI</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Visioncoin</source>
+        <translation>Visioncoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -165,8 +165,8 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Visioncoin</source>
+        <translation>Visioncoin</translation>
     </message>
     </context>
 <context>
@@ -194,8 +194,8 @@
         <translation>Marii </translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Nyora kero ye Litecoin (sekuti %1)</translation>
+        <source>Enter a Visioncoin address (e.g. %1)</source>
+        <translation>Nyora kero ye Visioncoin (sekuti %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
