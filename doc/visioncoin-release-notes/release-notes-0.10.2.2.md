@@ -51,10 +51,10 @@ is included in as separate release-notes.  This section describes the Visioncoin
 
 Protocol:
 - Scrypt Proof-of-Work instead of sha256d, however block hashes are sha256d for performance reasons.
-- Visioncoin TCP port 9333 (instead of 8333)
-- RPC TCP port 9332 (instead of 8332)
-- Testnet TCP port 19333 (instead of 18333)
-- Testnet RPC TCP port 19332 (instead of 18332)
+- Visioncoin TCP port 7333 (instead of 6333)
+- RPC TCP port 7332 (instead of 6332)
+- Testnet TCP port 17333 (instead of 16333)
+- Testnet RPC TCP port 19332 (instead of 16332)
 - 84 million coin limit  (instead of 21 million)
 - Magic 0xfbc0b6db       (instead of 0xf9beb4d9)
 - Target Block Time 2.5 minutes (instead of 10 minutes)
