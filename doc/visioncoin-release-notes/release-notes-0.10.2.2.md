@@ -54,7 +54,7 @@ Protocol:
 - Visioncoin TCP port 7333 (instead of 6333)
 - RPC TCP port 7332 (instead of 6332)
 - Testnet TCP port 17333 (instead of 16333)
-- Testnet RPC TCP port 19332 (instead of 16332)
+- Testnet RPC TCP port 17332 (instead of 16332)
 - 84 million coin limit  (instead of 21 million)
 - Magic 0xfbc0b6db       (instead of 0xf9beb4d9)
 - Target Block Time 2.5 minutes (instead of 10 minutes)
