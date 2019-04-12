@@ -282,7 +282,7 @@ Development guidelines
 ============================
 
 A few non-style-related recommendations for developers, as well as points to
-pay attention to for reviewers of batamcoin Core code.
+pay attention to for reviewers of Batamcoin Core code.
 
 General Batamcoin Core
 ----------------------

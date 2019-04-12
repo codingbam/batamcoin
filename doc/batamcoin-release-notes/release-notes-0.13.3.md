@@ -50,7 +50,7 @@ miniupnp CVE-2017-8798
 
 Bundled miniupnpc was updated to 2.0.20170509. This fixes an integer signedness error (present in MiniUPnPc v1.4.20101221 through v2.0) that allows remote attackers (within the LAN) to cause a denial of service or possibly have unspecified other impact.
 
-This only affects users that have explicitly enabled UPnP through the GUI setting or through the -upnp option, as since the last UPnP vulnerability (in batamcoin Core 0.10.4) it has been disabled by default.
+This only affects users that have explicitly enabled UPnP through the GUI setting or through the -upnp option, as since the last UPnP vulnerability (in Batamcoin Core 0.10.4) it has been disabled by default.
 
 If you use this option, it is recommended to upgrade to this version as soon as possible.
 

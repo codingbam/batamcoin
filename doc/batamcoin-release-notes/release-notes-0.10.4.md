@@ -66,7 +66,7 @@ specified point in the future.
    longer accept new version 3 blocks and it will only accept version 4
    blocks if they comply with the BIP65 rules for CLTV.
 
-**Notice to miners:** batamcoin Core’s block templates are now for
+**Notice to miners:** Batamcoin Core’s block templates are now for
 version 4 blocks only, and any mining software relying on its
 getblocktemplate must be updated in parallel to use libblkmaker either
 version v0.4.3 or any version from v0.5.2 onward.

@@ -1,6 +1,6 @@
 UNIX BUILD NOTES
 ====================
-Some notes on how to build bBatamcoin Core in Unix.
+Some notes on how to build Batamcoin Core in Unix.
 
 (for OpenBSD specific instructions, see [build-openbsd.md](build-openbsd.md))
 
@@ -94,7 +94,7 @@ BerkeleyDB 5.1 or later, which break binary wallet compatibility with the distri
 are based on BerkeleyDB 4.8. If you do not care about wallet compatibility,
 pass `--with-incompatible-bdb` to configure.
 
-See the section "Disable-wallet mode" to build batamcoin Core without wallet.
+See the section "Disable-wallet mode" to build Batamcoin Core without wallet.
 
 Optional (see --with-miniupnpc and --enable-upnp-default):
 

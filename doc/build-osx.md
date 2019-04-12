@@ -44,7 +44,7 @@ from the root of the repository.
 
 **Note**: You only need Berkeley DB if the wallet is enabled (see the section *Disable-Wallet mode* below).
 
-Build batamcoin Core
+Build Batamcoin Core
 ------------------------
 
 1. Clone the batamcoin source code and cd into `batamcoin`
@@ -87,15 +87,15 @@ Batamcoin Core is now available at `./src/batamcoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=batamcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/batamcoin/batamcoin.conf"
+    echo -e "rpcuser=batamcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Batamcoin/batamcoin.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/batamcoin/batamcoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Batamcoin/batamcoin.conf"
 
 The first time you run batamcoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/batamcoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Batamcoin/debug.log
 
 Other commands:
 -------
