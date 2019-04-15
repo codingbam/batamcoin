@@ -30,7 +30,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the batamcoin, gitian-builder, gitian.sigs.ltc, and batamcoin-detached-sigs.
+Run this script from the directory containing the batamcoin, gitian-builder, gitian.sigs.bam, and batamcoin-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -229,7 +229,7 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/batamcoin-project/gitian.sigs.ltc.git
+    git clone https://github.com/batamcoin-project/gitian.sigs.bam.git
     git clone https://github.com/batamcoin-project/batamcoin-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
@@ -272,7 +272,7 @@ then
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit batamcoin=${COMMIT} --url batamcoin=${url} ../batamcoin/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../batamcoin/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.bam/ ../batamcoin/contrib/gitian-descriptors/gitian-linux.yml
 	    mv build/out/batamcoin-*.tar.gz build/out/src/batamcoin-*.tar.gz ../batamcoin-binaries/${VERSION}
 	fi
 	# Windows
@@ -282,7 +282,7 @@ then
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit batamcoin=${COMMIT} --url batamcoin=${url} ../batamcoin/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../batamcoin/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.bam/ ../batamcoin/contrib/gitian-descriptors/gitian-win.yml
 	    mv build/out/batamcoin-*-win-unsigned.tar.gz inputs/batamcoin-win-unsigned.tar.gz
 	    mv build/out/batamcoin-*.zip build/out/batamcoin-*.exe ../batamcoin-binaries/${VERSION}
 	fi
@@ -293,7 +293,7 @@ then
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit batamcoin=${COMMIT} --url batamcoin=${url} ../batamcoin/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../batamcoin/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.bam/ ../batamcoin/contrib/gitian-descriptors/gitian-osx.yml
 	    mv build/out/batamcoin-*-osx-unsigned.tar.gz inputs/batamcoin-osx-unsigned.tar.gz
 	    mv build/out/batamcoin-*.tar.gz build/out/batamcoin-*.dmg ../batamcoin-binaries/${VERSION}
 	fi
@@ -322,27 +322,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-linux ../batamcoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs.bam/ -r ${VERSION}-linux ../batamcoin/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-win-unsigned ../batamcoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs.bam/ -r ${VERSION}-win-unsigned ../batamcoin/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-unsigned ../batamcoin/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs.bam/ -r ${VERSION}-osx-unsigned ../batamcoin/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs.bam/ -r ${VERSION}-osx-signed ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs.ltc/ -r ${VERSION}-osx-signed ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
+	./bin/gverify -v -d ../gitian.sigs.bam/ -r ${VERSION}-osx-signed ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml	
 	popd
 fi
 
@@ -358,7 +358,7 @@ then
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
 	    ./bin/gbuild -i --commit signature=${COMMIT} ../batamcoin/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.ltc/ ../batamcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs.bam/ ../batamcoin/contrib/gitian-descriptors/gitian-win-signer.yml
 	    mv build/out/batamcoin-*win64-setup.exe ../batamcoin-binaries/${VERSION}
 	    mv build/out/batamcoin-*win32-setup.exe ../batamcoin-binaries/${VERSION}
 	fi
@@ -369,7 +369,7 @@ then
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
 	    ./bin/gbuild -i --commit signature=${COMMIT} ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.ltc/ ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs.bam/ ../batamcoin/contrib/gitian-descriptors/gitian-osx-signer.yml
 	    mv build/out/batamcoin-osx-signed.dmg ../batamcoin-binaries/${VERSION}/batamcoin-${VERSION}-osx.dmg
 	fi
 	popd

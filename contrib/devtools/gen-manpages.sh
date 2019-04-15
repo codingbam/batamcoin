@@ -12,7 +12,7 @@ BATAMCOINQT=${BATAMCOINQT:-$SRCDIR/qt/batamcoin-qt}
 [ ! -x $BATAMCOIND ] && echo "$BATAMCOIND not found or not executable." && exit 1
 
 # The autodetected version git tag can screw up manpage output a little bit
-LTCVER=($($BATAMCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }'))
+BAMVER=($($BATAMCOINCLI --version | head -n1 | awk -F'[ -]' '{ print $6, $7 }'))
 
 # Create a footer file with copyright content.
 # This gets autodetected fine for bitcoind if --version-string is not set,
@@ -22,8 +22,8 @@ $BATAMCOIND --version | sed -n '1!p' >> footer.h2m
 
 for cmd in $BATAMCOIND $BATAMCOINCLI $BATAMCOINTX $BATAMCOINQT; do
   cmdname="${cmd##*/}"
-  help2man -N --version-string=${LTCVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
-  sed -i "s/\\\-${LTCVER[1]}//g" ${MANDIR}/${cmdname}.1
+  help2man -N --version-string=${BAMVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
+  sed -i "s/\\\-${BAMVER[1]}//g" ${MANDIR}/${cmdname}.1
 done
 
 rm -f footer.h2m
