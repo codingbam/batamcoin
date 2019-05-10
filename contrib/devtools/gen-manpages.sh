@@ -25,8 +25,8 @@ $GLANDCOIND --version | sed -n '1!p' >> footer.h2m
 
 for cmd in $GLADCOIND $GLADCOINCLI $GLADCOINTX $GLADCOINQT; do
   cmdname="${cmd##*/}"
-  help2man -N --version-string=${LTCVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
-  sed -i "s/\\\-${LTCVER[1]}//g" ${MANDIR}/${cmdname}.1
+  help2man -N --version-string=${GLCVER[0]} --include=footer.h2m -o ${MANDIR}/${cmdname}.1 ${cmd}
+  sed -i "s/\\\-${GLCVER[1]}//g" ${MANDIR}/${cmdname}.1
 done
 
 rm -f footer.h2m

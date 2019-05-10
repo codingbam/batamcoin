@@ -67,7 +67,7 @@ Protocol:
 Relay:
 - gladcoin Core rounds transaction size up to the nearest 1000 bytes before calculating fees.  This size rounding behavior is to mimic fee calculation of gladcoin v0.6 and v0.8.
 - Bitcoin's IsDust() is disabled in favor of gladcoin's fee-based dust penalty.
-- Fee-based Dust Penalty: For each transaction output smaller than DUST_THRESHOLD (currently 0.001 LTC) the default relay/mining policy will expect an additional 1000 bytes of fee.  Otherwise the transaction will be rejected from relay/mining.  Such transactions are also disqualified from the free/high-priority transaction rule.
+- Fee-based Dust Penalty: For each transaction output smaller than DUST_THRESHOLD (currently 0.001 GLC) the default relay/mining policy will expect an additional 1000 bytes of fee.  Otherwise the transaction will be rejected from relay/mining.  Such transactions are also disqualified from the free/high-priority transaction rule.
 - Miners and relays can adjust the expected fee per-KB with the -minrelaytxfee parameter.
 
 Wallet:
